@@ -54,7 +54,7 @@ body {
   margin-bottom: 5px;
   letter-spacing: -0.5px;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
-  -webkit-background-clip: text;
+  -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent;
 }
 
@@ -139,22 +139,22 @@ body {
   text-decoration: underline;
 }
 
-.remember-me {
+/* .remember-me {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-}
+} */
 
-.forgot-password {
+/* .forgot-password {
   float: right;
   color: var(--primary);
   text-decoration: none;
   font-size: 14px;
-}
+} */
 
-.forgot-password:hover {
+/* .forgot-password:hover {
   text-decoration: underline;
-}
+} */
 
 @media (max-width: 480px) {
   .registration-container {
