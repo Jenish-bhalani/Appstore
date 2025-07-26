@@ -18,27 +18,29 @@ body {
 .registration-container {
   max-width: 400px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 30px;
   background-color: var(--white);
-  border-radius: 8px;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
   box-shadow: 0 10px 30px rgba(106, 13, 173, 0.2);
 }
 
 .logo-container {
   text-align: center;
   margin-bottom: 20px;
+  padding: 20px 0;
 }
 
 .logo {
-  width: 120px;
-  display: inline-block;
-  background-color: #6a0dad;
-  color: white;
-  padding: 10px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 5px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
 }
 
 .tagline {
@@ -47,21 +49,23 @@ body {
 }
 
 .form-group {
-  margin-bottom: 15px;
-  
+  margin-bottom: 20px;
+  position: relative;
 }
 
 label {
   display: block;
   margin-bottom: 6px;
-  font-weight: bold;
+  font-weight: 500;
+  color: var(--dark-gray);
+  font-size: 14px;
 }
 
 .form-control {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 7px;
   
 }
 .form-control:focus {
@@ -89,7 +93,9 @@ label {
 .btn {
   width: 100%;
   padding: 10px;
-  background-color: #6a0dad;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
   color: white;
   border: none;
   border-radius: 4px;
