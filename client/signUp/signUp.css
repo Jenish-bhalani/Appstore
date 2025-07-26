@@ -40,7 +40,7 @@ body {
   letter-spacing: -0.5px;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
   -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .tagline {
@@ -63,10 +63,10 @@ label {
 
 .form-control {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 7px;
-  
+  transition: all 0.3s ease;
 }
 .form-control:focus {
   border-color: var(--primary);
@@ -92,15 +92,16 @@ label {
 
 .btn {
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
   color: var(--white);
   box-shadow: 0 4px 15px rgba(106, 13, 173, 0.3);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .btn:hover {

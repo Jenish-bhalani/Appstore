@@ -55,7 +55,7 @@ body {
   letter-spacing: -0.5px;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
   -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .tagline {
@@ -81,7 +81,7 @@ body {
 
 .form-control {
   width: 100%;
-  padding: 14px 16px;
+  padding: 10px;
   border: 2px solid var(--gray);
   border-radius: 7px;
   font-size: 15px;
@@ -138,23 +138,6 @@ body {
 .login-link a:hover {
   text-decoration: underline;
 }
-
-/* .remember-me {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-} */
-
-/* .forgot-password {
-  float: right;
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 14px;
-} */
-
-/* .forgot-password:hover {
-  text-decoration: underline;
-} */
 
 @media (max-width: 480px) {
   .registration-container {
