@@ -1,48 +1,47 @@
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const fname = document.getElementById("firstName").value.trim();
-  const lname = document.getElementById("lastName").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const pass = document.getElementById("password").value;
-  const cpass = document.getElementById("confirmPassword").value;
+  var firstName = document.getElementById("firstName").value.trim();
+  var lastName = document.getElementById("lastName").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirmPassword").value;
 
-  let hasError = false;
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+  var errors = false;
 
   document.querySelectorAll(".error-message").forEach(el => el.style.display = "none");
 
-  if (fname === "") {
+  if (firstName === "") {
     document.getElementById("firstNameError").style.display = "block";
-    hasError = true;
+    errors = true;
   }
 
-  if (lname === "") {
+  if (lastName === "") {
     document.getElementById("lastNameError").style.display = "block";
-    hasError = true;
+    errors = true;
   }
 
-  if (email === "" || !emailRegex.test(email)) {
+  if (email === "" || !email.includes("@")) {
     document.getElementById("emailError").style.display = "block";
-    hasError = true;
+    errors = true;
   }
 
-  if (pass.length < 8) {
+  if (password.length < 8) {
     document.getElementById("passwordError").style.display = "block";
-    hasError = true;
+    errors = true;
   }
 
-  if (pass.includes(" ")) {
+  if (password.includes(" ")) {
     alert("Password must not contain spaces.");
-    hasError = true;
+    errors = true;
   }
 
-  if (pass !== cpass) {
+  if (password !== confirmPassword) {
     document.getElementById("confirmPasswordError").style.display = "block";
-    hasError = true;
+    errors = true;
   }
 
-  if (!hasError) {
+  if (!errors) {
     alert("Registration successful!");
     document.getElementById("registrationForm").reset();
   }
