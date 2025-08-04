@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>signup</title>
+    <link rel="stylesheet" href="signupStyle.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="errorContainer">
+     <i class="fa-solid fa-xmark" onclick="closeRegisterErrorsByXmark()"></i>
+        <ul></ul>
+    </div>
+
+    <main>
+       <h2>sign up</h2>
+        <hr>
+        <form  method="POST" class="registerForm" enctype="multipart/form-data">
+            <div id="first">
+                <div>
+                  <label>first name</label>
+                    <input type="text" name="firstName" placeholder="Enter FirstName">
+                </div>
+                <div>
+                    <label for="">lastName</label>
+                    <input type="text" name="lastName" placeholder="Enter LastName">
+                      
+                </div>
+            </div>
+            <div id="second">
+               <label for="">email</label>
+                <input type="email" name="email" placeholder="vasu1207@gmail.com" class="fillDetials">
+                   
+            </div>
+            <div id="three">
+                <label for="password">password</label>
+                <input type="password" name="password" placeholder="Enter password" class="fillDetials"
+                    id="signUpPassword">
+
+                <br>
+                <label for="">confirmPassword</label>
+                <input type="password" name="confirmPassword" placeholder="Enter Confirm Password" class="fillDetials">
+            </div>
+            <div id="four">
+                <p>gender</p>
+                <div>
+                    <label for="male">male</label>
+                    <input type="radio" name="gender" value="male" id="male">
+                    <label for="female">female</label>
+                    <input type="radio" name="gender" value="female" id="female">
+                </div>
+            </div>
+
+            <div id="five">
+                <label><input type="checkbox" name="termsAccepted"><span>i accept the terms and
+                        conditions</span></label>
+            </div>
+
+             <div>
+                <button type="submit" id="registerBtn">register</button>
+            </div>
+            </form>
+            <div id="alreadyRegister">
+                <p>I have already register<a href="login.html">login</a></p>
+            </div>
+        
+</main>
+
+<!--start javascript-->
+<script lang="javascript">
+    const errorContainer = document.querySelector('.errorContainer');//get errorContainer for display validation error
+    const registerForm = document.querySelector('.registerForm');//target singup form
+    registerForm.addEventListener('submit',async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const result = await fetch('http://localhost:3000/api/register',{
+            method:"POST",
+            body:formData,
+        });
+        const data = await result.json();
+        if(data.message == 'success'){
+           window.location.href = 'login.html';
+        }else{
+            const errorMsg = document.querySelector('.errorContainer ul');
+            errorMsg.innerHTML = ''
+            data.errors.forEach((d) => {
+                errorMsg.innerHTML += `<li>${d.msg}</li>`;
+            });                
+            errorContainer.style.display = 'inline';
+        }
+    });
+
+    //this function call when user click xmark in error container
+    function closeRegisterErrorsByXmark(){
+        errorContainer.style.display = 'none';
+    }
+</script>
+<!-- end javascript -->
+</body>
+</html>
