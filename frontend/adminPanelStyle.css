@@ -1,0 +1,262 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/*use oly decoration*/
+#decoration{
+    width:100%;
+    height:100px;
+    background-color:#043604;
+}
+/*style main tag*/
+main{
+    width:90vw;
+    margin-left:5vw;
+    background-color:aliceblue;
+    position:relative;
+    bottom:30px;
+    z-index:1;
+    display:flex;
+}
+/*style left side opetions*/
+.leftSideOptions{
+    background-color:#e2ffe2;
+    float:left;
+    width:250px;
+}
+.leftSideOptions div{
+    border-bottom:1px solid rgb(148, 140, 140);
+    margin-block:10px;
+    display:flex;
+    align-items:center;
+    padding:5px 2px;
+}
+.leftSideOptions i{
+    font-size:30px;
+    color:#014201;
+    padding-inline:5px;
+}
+.leftSideOptions button{
+    font-size:18px;
+    background:transparent;
+    border:none;
+    text-transform:capitalize;
+    cursor: pointer;
+    color:#393535;
+    font-weight:600;
+}
+#dashboardIcon{
+    color:rgb(8, 36, 137);
+}
+
+/*style right side opetions*/
+.rightSideOptions{
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+    width:1000px;
+}
+.heading{
+    border-bottom:1px solid rgb(46, 44, 44);
+    width:100%;
+    text-align:center;
+    padding-block:5px;
+}
+#dashboardDetails{
+    margin:10px 0px 0px 10px;
+    /* display:none; */
+}
+.counter{
+    width:30vw;
+    height:20vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-evenly;
+    font-weight:400;
+    border-radius:5px;
+    margin-block:10px;
+    color:#fff; 
+}
+#totalItmes{
+    background-color:#ff6392;
+}
+#totalGames{
+    background-color:#fe6400; 
+}
+#totalApps{
+    background-color:#fe32ff; 
+}
+p{
+    font-size:1.5rem;
+    text-transform:capitalize;
+}
+/* style and display validation error while user not fill proper data*/
+.uploadErrorSummery{
+    display:none;
+    width:50vw;
+    background-color:rgb(221, 242, 221);
+    padding:10px 10px;
+    position:absolute;
+    top:0px;
+    left:270px;
+    z-index:2;
+}
+.uploadErrorSummery i{
+    font-size:20px;
+    cursor:pointer;
+}
+.uploadErrorSummery ul{
+    padding-left:25px;
+    padding-top:10px;
+}
+.uploadErrorSummery ul li{
+    font-size:1.2rem;
+    list-style-type:none;
+    color:#b10909;
+    padding-block:3px;
+}
+/*style uploadItemsContainer for upload new apps*/
+.uploadItemsContainer{
+    width:30vw;
+    background-color:#ffebf5;
+    display:none;
+    flex-direction:column;
+    padding-block:10px;
+    margin:0px 0px 0px 30px;
+}
+#closeSign{
+    padding:5px;
+    font-size:1.2rem;
+}
+#closeSign i {
+    cursor: pointer;
+}
+form div{
+    width:26vw;
+    margin-block:5px;
+    font-size:1rem;
+    text-transform:capitalize;
+    display:flex;
+    flex-direction:column;
+    margin-left:2vw;
+}
+#appName{
+    line-height:2;
+    margin-top:5px;
+    padding-left:5px;
+}
+#radioContainer{
+    width:15vw;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+    padding-top:5px;
+}
+#categories{
+    text-transform:capitalize;
+    height:35px;
+    margin-top:5px;
+}
+#description{
+    line-height:2;
+    padding-left:10px;
+    margin-top:5px;
+    font-size:1.1rem;
+}
+legend{
+    text-align:center;
+}
+.common{
+    padding:10px;
+}
+#uploadBtn,#upDateBtn{
+    font-size:1.2rem;
+    font-weight:600;
+    padding:5px 25px;
+    margin-left:10vw;
+    background-color:#435c20;
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin-block:5px;
+}
+
+/*style update and delete Items Containers*/
+.updateAndDelete{
+    /* border:2px solid red; */
+    display:none;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    gap:10px;
+    /* background-color:#000; */
+    margin-top:10px;
+    margin-left:20px;
+}
+.updateAndDeleteInfo{
+    width:150px;
+    display:flex;
+    flex-direction:column;
+    background-color:#fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.updateAndDeleteFrontIcon{
+    width:100%;
+    height:150px;
+    border:1px solid rgb(86, 87, 86);
+}
+.updateAndDeleteFrontIcon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.updateAndDeleteInfo p{
+    font-size:18px;
+    padding-left:10px;
+    font-weight:600;
+    text-transform:capitalize;
+    word-wrap:break-word;
+    color:rgb(46, 46, 46);
+}
+.updateAndDeleteInfo  button{
+    width:96%;
+    margin-left:2%;
+    font-size:16px;
+    text-transform:capitalize;
+    margin-block:5px;
+    background-color:#ff6392;
+    color:#fff;
+    font-weight:600;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    padding-block:5px;
+}
+
+/* style updateItemContainer */
+#updateItemFormContainer{
+    background-color:#f4f4f4;
+    margin:10px 0px 20px 20px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position:relative;
+    right:500px;
+    z-index:1;
+    display:none;
+    flex-direction:column;
+
+}
+#updateItemsForm{
+    padding-block:20px;
+    padding-right:20px;
+}
+#updateItemFormContainer i{
+    align-self:flex-end;
+    font-size:20px;
+    padding:5px 10px 0px 0px;
+    cursor: pointer;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories</title>
+  <link rel="stylesheet" href="stylescat.css" />
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #000; /* Black background */
+  color: #fff;
+  padding: 40px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.category {
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.category:hover {
+  transform: translateY(-5px);
+}
+
+/* Different category colors */
+.entertainment {
+  background-color: #ff4757;
+}
+
+.business {
+  background-color: #1e90ff;
+}
+
+.news {
+  background-color: #ffa502;
+}
+
+.shopping {
+  background-color: #2ed573;
+}
+
+.education {
+  background-color: #9b59b6;
+}
+
+
+.barOptions{
+    width:90vw;
+    background-color:#f0f0f0;
+    display:none;
+    flex-direction:column;
+    margin-left:5vw;
+}
+#xmark{
+    padding:10px 0px 0px 20px;
+    font-size:22px;
+}
+ul{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+ul hr{
+    width:100%;
+}
+ul li{
+    padding-left:10px;
+    margin:5px;
+    list-style-type:none;
+}
+.barOptions a{
+    text-decoration:none;
+    color:black;
+   font-size:16px;
+   font-weight:600;
+
+}
+/*style navigation*/
+nav{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    /* background-color:#06402B; */
+}
+nav img{
+    width:50px;    
+    height:50px;
+    border-radius:50%;
+    margin-block:5px;
+}
+nav input{
+    width:35vw;
+    line-height:1.5;
+    padding-left:20px;
+    border:none;
+    border-radius:20px;
+    font-size:1.2rem;
+}
+nav a,nav i{
+    font-size:20px;
+    color:#fff;
+    font-weight:600;
+    cursor: pointer;
+}
+#loginLink{
+    background-color:#006400;
+    padding:5px 20px;
+    border-radius:5px;
+}
+nav a{
+    text-decoration:none;
+
+}
+.categoriesBarOptions{
+  display:flex;
+}
+.categoriesBarOptions ul{
+  display:flex;
+  border:2px solid red;
+}
+@media(max-width:460px){
+    #auth{
+        display:none;
+    }
+    nav input{
+        width:50vw;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div><img src='vk1.jpg'></div><!--logo-->
+              <di class="categoriesBarOptions">
+                <ul>
+                  <li><a href="#">home</a></li>
+                  <li><a href="#">about</a></li>
+                  <li><a href="#">content</a></li>
+                  <li><a href="#">categories</a></li>
+                </ul>
+              </div>
+              <div id="auth"><a href="./auth/signup.html">signup</a></div>
+            <div id="auth"><a href="./auth/login.html" id="loginLink">login</a></div>
+            <div><i class="fa-solid fa-bars" id="bar"></i></div>
+        </nav>
+  </header>
+  <div class="container">
+    <h1>Categories</h1>
+    <div class="categories">
+     <div class="category entertainment">1. Entertainment</div>
+      <div class="category business">2. Business</div>
+      <div class="category news">3. News & Magazines</div>
+      <div class="category shopping">4. Shopping</div>
+      <div class="category education">5. Education</div>
+    </div>
+  </div>
+</body>
+</html>

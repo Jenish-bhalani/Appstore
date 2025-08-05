@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addmin panel</title>
+    <link rel="stylesheet" href="adminPanelStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="decoration"></div><!--this div use only decoration-->
+    <main>
+        <div class="leftSideOptions">
+            <div>
+                <i class="fa-brands fa-flipboard" id="dashboardIcon"></i>
+                <button onclick="showDashboard()">dashboard</button>
+            </div>
+            <div>
+                <i class="fa-regular fa-square-plus"></i>
+                <button onclick="showUploadForm()">upload app</button>
+            </div>
+            <div>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <button onclick="showUpdateItem()">update app</button>
+            </div>
+            <div>
+                <i class="fa-solid fa-trash-can"></i>
+                <button onclick="showDeleteItems()">delete app</button>
+            </div>
+        </div><!--close leftSideOprions-->
+
+        <div class="rightSideOptions">
+            <div class="heading">
+                <h1>admin panel</h1><!--heading-->
+            </div><!--close heading div-->
+            <div id="dashboardDetails">
+
+                <div id="totalItmes" class="counter">
+                    <h2 id="availabelItems">00</h2>
+                    <hr width="100%" color="#000">
+                    <p>availabel items</p>
+                </div>
+
+                <div id="totalGames" class="counter">
+                    <h2 id="availabelGames">00</h2>
+                    <hr width="100%" color="#000">
+                    <p>availabel games</p>
+                </div>
+
+                <div id="totalApps" class="counter">
+                    <h2 id="availabelApps">00</h2>
+                    <hr width="100%" color="#000">
+                    <p>availabel apps</p>
+                </div>
+
+            </div><!--close dashboardDetials div -->
+
+            <div class="uploadItemsContainer">
+                 <form id="uploadItemsForm" enctype="multipart/form-data">
+                    <div>
+                        <label for="appName">app name</label>
+                        <input type="text" id="appName" name="appName" placeholder="Enter App Name">
+                    </div>
+                    <div>
+                    <fieldset>
+                        <legend>upload logo image</legend>
+                        <input type="file" name="appIcon" class="common" accept=".jpg,.jpeg,.png,.webp">
+                    </fieldset>
+
+                </div>
+                <div>
+
+
+                    <label for="">select type</label>
+                    <span id="radioContainer">
+                        <span>
+                            <label for="apps">apps</label>
+                            <input type="radio" id="apps" name="appType" value="apps">
+                        </span>
+                        <span>
+                            <label for="games">games</label>
+                            <input type="radio" id="games" name="appType" value="games">
+                        </span>
+                    </span>
+
+                </div>
+                <div>
+                    <label for="categories">select categories</label>
+                    <select id="categories" name="categories">
+                        <option value="educational">educational</option>
+                        <option value="shopping">shopping</option>
+                        <option value="newsAndMagazines">news &amp; magazines</option>
+                        <option value="business">business</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="description">description</label>
+                    <textarea name="description" id="description" placeholder="Write description here"></textarea>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>upload zipFile</legend>
+                        <input type="file" name="zipFile" class="common" accept=".zip">
+                    </fieldset>
+
+                </div>
+                <button type="submit" id="uploadBtn">upload</button>
+            </form>
+        </div><!--close uploadItemsContainer-->
+
+        <div class="updateAndDelete" id="deleteItemContainer">   
+           
+        </div><!--close deleteItemContainer-->
+            <!--data come to dynamic-->
+        <div class="updateAndDelete" id="updateItemContainer">
+            <!--data come to dynamic-->
+       </div><!--close updateItemContainer-->
+
+</div><!--close rightSideOprions-->
+
+        <div class="uploadErrorSummery">
+            <i class="fa-solid fa-xmark" onclick="closeErrorSummeryByXmark()"></i>
+            <ul></ul>
+        </div><!--upload error summer close-->
+
+
+        <!--update form-->
+        <div id="updateItemFormContainer">
+            <i class="fa-solid fa-xmark" onclick="closeUpdateItemFomrByXmark()"></i> 
+            <form id="updateItemsForm" enctype="multipart/form-data">
+                <h1>hello mr vasu</h1>
+                    <!-- <div>
+                        <label for="appName">app name</label>
+                        <input type="text" id="appName" name="appName" placeholder="Enter App Name">
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>change app Icon</legend>
+                            <input type="file" name="appIcon" class="common" accept=".jpg,.jpeg,.png,.webp">
+                        </fieldset>
+                    </div>
+                    <div>
+                        <label for="">select type</label>
+                            <span id="radioContainer">
+                                <span>
+                                    <label for="apps">apps</label>
+                                    <input type="radio" id="apps" name="appType" value="apps">
+                                </span>
+                                <span>
+                                    <label for="games">games</label>
+                                    <input type="radio" id="games" name="appType" value="games">
+                                </span>
+                            </span>
+
+                    </div>
+                    <div>
+                        <label for="categories">select categories</label>
+                        <select id="categories" name="categories">
+                            <option value="educational">educational</option>
+                            <option value="shopping">shopping</option>
+                            <option value="newsAndMagazines">news &amp; magazines</option>
+                            <option value="business">business</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="description">description</label>
+                        <textarea name="description" id="description" placeholder="Write description here"></textarea>
+                    </div>
+                    <button type="submit" id="upDateBtn">update</button> -->
+            </form>
+        </div>
+        <!--close update form-->
+
+</main>
+
+    <script src="adminScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="loginStyle.css">
+</head>
+<body>
+      <main>
+        <div class="registerForm">
+            <h2>login</h2>
+            <hr>
+            <form action="/login" id="loginForm">
+                <input type="email" name="email" placeholder="Enter your email" id='email' required>
+                <input type="password" name="password" placeholder="Enter Password"  required id="passInput">
+                <button type="submit">login</button>
+            </form>
+            <div id="noAccount">
+                <p>Don't have an account?<a href="./signup.html">sign up</a></p>
+            </div>
+        </div>
+    </main>
+
+ <!-- start javascript -->
+<script lang="javascript">
+    const loginForm = document.querySelector('#loginForm');//target login form
+    loginForm.addEventListener('submit',async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const result = await fetch(`http://localhost:3000/api/login?email=${email}&password=${password}`);
+        const data = await result.json();
+        if(data.message == 'user not exists'){
+             alert('Your account does not exist,Please SignUp');
+        }else if(data.message == 'wrong password'){
+             alert('Please,Enter the valid password');
+        }else{
+             window.location.href= '../index.html';
+        }
+
+        loginForm.reset();
+        
+    });
+</script>
+<!-- end javascript -->
+</body>
+</html>
