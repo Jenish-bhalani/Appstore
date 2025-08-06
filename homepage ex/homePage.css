@@ -1,0 +1,233 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  padding-top: 80px; /* prevent nav from overlapping banner */
+  background-color: #f9f8ff;
+  color: #333;
+}
+
+/* NAVIGATION BAR */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  padding: 10px 20px;
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.25); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+}
+
+.navLogo img {
+  height: 60px;
+  filter: drop-shadow(0 0 6px rgba(106, 13, 173, 0.5));
+}
+
+.navTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #6a0dad;
+  margin-left: 10px;
+  text-shadow: 0 0 4px rgba(154, 66, 245, 0.4);
+} 
+
+.navSearch input {
+  padding: 6px 16px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  width: 350px;
+  font-size: 1rem;
+}
+
+.search {
+  color: white;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+}
+
+.navLinks a.active {
+  color: #6a0dad;
+  font-weight: bold;
+  border-bottom: 2px solid #6a0dad;
+}
+
+/* 🔥 Enhanced Navigation Hover Effects */
+.navLinks li a {
+  text-decoration: none;
+  color: #6a0dad;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.navLinks li a:hover {
+  color: #9c42f5;
+  font-size: 1.15rem;
+  transform: scale(1.1);
+  text-shadow: 0 0 6px rgba(154, 66, 245, 0.6);
+}
+
+.navLinks li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #9c42f5;
+  transition: width 0.3s ease;
+}
+
+.navLinks li a:hover::after {
+  width: 100%;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#signupBtn,
+#loginLink {
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background-color: #6a0dad;
+  color: white;
+  font-weight: bold;
+}
+
+#bar {
+  font-size: 22px;
+  cursor: pointer;
+  color: #6a0dad;
+}
+
+/* HERO BANNER */
+.heroBanner {
+  background-image: 
+    linear-gradient(to bottom, #6a0dad73, rgba(249, 248, 255, 0.9)), 
+    url('banner.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  color: white;
+  margin-top: -80px;
+  padding-top: 160px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.bannerContent {
+  text-align: left;
+  max-width: 600px;
+  padding: 0 40px;
+  color: black;
+}
+
+.bannerContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.bannerContent p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.exploreBtn {
+  background-color: #9c42f5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* APP CARDS */
+.appsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 40px 20px;
+  padding-left: 55px;
+}
+
+.appsContainer {
+  width: 250px;
+  background-color: var(--white);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.1);
+  text-align: center;
+}
+
+.appImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.appDetails {
+  margin-top: 10px;
+}
+
+.freeTag {
+  background: #32cb07;
+  color: white;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.appButtons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.downloadBtn,
+.knowMoreBtn {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #9c42f5;
+  color: white;
+}
+
+.knowMoreBtn {
+  background-color: #6a0dad;
+}

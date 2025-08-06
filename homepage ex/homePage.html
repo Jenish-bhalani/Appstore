@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apptube - Home</title>
+  <link rel="stylesheet" href="homePage.css" />
+  <link rel="icon" type="image/png" href="logo-removebg-preview.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const current = location.pathname.split("/").pop();
+      document.querySelectorAll(".navLinks a").forEach(link => {
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+
+      // Contact form submission
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const responseMsg = document.getElementById("responseMsg");
+
+        if (name && email && message) {
+          responseMsg.textContent = "Thanks for reaching out! We'll get back to you soon.";
+          responseMsg.style.color = "#00ffcc";
+          this.reset();
+        } else {
+          responseMsg.textContent = "Please fill out all fields.";
+          responseMsg.style.color = "#ff6666";
+        }
+      });
+    });
+  </script>
+  <style>
+    /* CONTACT FORM STYLES */
+    #contactSection {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      width: 90%;
+      max-width: 500px;
+      margin: 80px auto;
+      animation: fadeIn 1s ease-in-out;
+      color: white;
+    }
+
+    #contactSection h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #fff;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1em;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00c3ff;
+    }
+
+    label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      color: #ccc;
+      pointer-events: none;
+      transition: 0.3s ease all;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label,
+    textarea:focus + label,
+    textarea:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 10px;
+      font-size: 0.8em;
+      color: #00c3ff;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 0 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00c3ff;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0099cc;
+    }
+
+    #responseMsg {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #00ffcc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="navLogo">
+      <img src="logo-removebg-preview.png" alt="Logo" /> 
+      <h1 class="navTitle">Apptube</h1></div>
+
+    <div class="navSearch">
+      <input type="text" id="search" class="search" placeholder="Search apps or games..." />
+    </div>
+
+    <ul class="navLinks">
+      <li><a href="#top">Home</a></li>
+      <li><a href="../apps/apps.html">Apps</a></li>
+      <li><a href="../games/games.html">Games</a></li>
+      <li><a href="../categories/categories.html">Category</a></li>
+      <li><a href="#contactSection">Contact</a></li>
+      <li><a href="../about Us/aboutUs.html">About Us</a></li>
+    </ul>
+    <div class="navActions">
+      <a href="../signUp/signUp.html" id="signupBtn">SignUp</a>
+      <a href="../login/login.html" id="loginLink">LogIn</a>
+    </div>
+  </nav>
+
+  <!-- BANNER SECTION -->
+  <div class="heroBanner" id="top">
+    <div class="bannerBg"></div>
+    <div class="bannerContent">
+      <h1>Discover Amazing Apps & Games</h1>
+      <p>Apptube is your one-stop platform to explore, download, and enjoy high-quality Windows desktop applications and games.</p>
+      <a href="#appsSection"><button class="exploreBtn">Explore Now</button></a>
+    </div>
+  </div>
+
+  <!-- APP CARDS SECTION -->
+  <main id="appsSection" class="appsGrid">
+    <!-- Your app cards go here -->
+  </main>
+
+  <!-- CONTACT SECTION -->
+  <section id="contactSection">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <div class="input-group">
+        <input type="text" id="name" required placeholder=" " />
+        <label for="name">Your Name</label>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" required placeholder=" " />
+        <label for="email">Email Address</label>
+      </div>
+      <div class="input-group">
+        <textarea id="message" rows="5" required placeholder=" "></textarea>
+        <label for="message">Your Message</label>
+      </div>
+      <button type="submit">Send Message</button>
+      <p id="responseMsg"></p>
+    </form>
+  </section>
+
+</body>
+</html>
