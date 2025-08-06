@@ -7,7 +7,7 @@
 }
 
 body {
-  padding-top: 80px; /* prevent nav from overlapping banner */
+  padding-top: 80px; 
   background-color: #f9f8ff;
   color: #333;
 }
@@ -22,7 +22,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+  font-size: large;
   padding: 10px 20px;
   backdrop-filter: blur(12px);
   background-color: rgba(255, 255, 255, 0.25); 
@@ -40,7 +40,7 @@ nav {
  
 
 .navLogo img {
-  height: 60px;
+  height: 75px;
   filter: drop-shadow(0 0 6px rgba(106, 13, 173, 0.5));
 }
 
@@ -50,21 +50,23 @@ nav {
   color: #6a0dad;
   margin-left: 10px;
   text-shadow: 0 0 4px rgba(154, 66, 245, 0.4);
+  
 } 
 
 
 
 .navSearch input {
   padding: 6px 16px;
-  border-radius: 30px;
+  border-radius: 15px;
   border: 1px solid #ccc;
   width: 350px;
   font-size: 1rem;
-  
+  font-weight: bold;
 }
 
 .search {
-  color: white;
+  color:solid black;
+  
 }
 
 .navLinks {
@@ -100,7 +102,7 @@ nav {
 #loginLink {
   text-decoration: none;
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #6a0dad;
   color: white;
   font-weight: bold;
@@ -153,11 +155,13 @@ nav {
 .exploreBtn {
   background-color: #9c42f5;
   color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
+  padding: 15px 20px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   font-weight: bold;
+  width:30%;
+  font-size: 16px;
 }
 
 
@@ -165,21 +169,17 @@ nav {
 .appsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 40px 20px;
+  padding: 50px 20px;
   padding-left: 55px;
+  gap: 10px;
 }
 
 .appsContainer {
-  /* background: white;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  text-align: center; */
   width: 250px;
   background-color: var(--white);
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.1);
+  box-shadow: 0 10px 35px rgba(106, 13, 173, 0.2);
   text-align: center;
 }
 
@@ -215,7 +215,7 @@ nav {
 .downloadBtn,
 .knowMoreBtn {
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   font-weight: bold;
   cursor: pointer;
