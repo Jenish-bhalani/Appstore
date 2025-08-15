@@ -9,7 +9,6 @@
   --error: #ff3860;
 }
 
-
 /* Reset & Base */
 * {
   margin: 0;
@@ -19,7 +18,7 @@
 }
 
 body {
-  padding-top: 80px; /* prevent nav from overlapping banner */
+  padding-top: 80px;
   background-color: #f9f8ff;
   color: #333;
 }
@@ -30,14 +29,12 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   padding: 10px 20px;
   backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.25); 
+  background-color: rgba(255, 255, 255, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -57,7 +54,7 @@ nav {
   color: var(--primary);
   margin-left: 10px;
   text-shadow: 0 0 4px rgba(154, 66, 245, 0.4);
-} 
+}
 
 .navSearch input {
   padding: 6px 16px;
@@ -90,7 +87,6 @@ nav {
   padding-bottom: 2px;
 }
 
-/* subtle underline on hover (smooth) */
 .navLinks li a::after {
   content: "";
   position: absolute;
@@ -111,7 +107,7 @@ nav {
   width: 100%;
 }
 
-/* actions (signup/login) */
+/* SIGNUP / LOGIN BUTTONS */
 .navActions {
   display: flex;
   align-items: center;
@@ -129,111 +125,28 @@ nav {
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
-/* Keep login similar but slightly different hover */
 #loginLink {
   background: var(--primary);
 }
 
-/* subtle hover for nav action buttons */
 #signupBtn:hover,
 #loginLink:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(154,66,245,0.14);
+  box-shadow: 0 6px 18px rgba(154, 66, 245, 0.14);
   filter: brightness(1.03);
   background: #9c42f5;
 }
 
-/* HERO BANNER */
-.heroBanner {
-  background-image: linear-gradient(to bottom, #6a0dad73, rgba(249, 248, 255, 0.9)), url('banner.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  color: white;
-  margin-top: -80px;
-  padding-top: 160px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.bannerContent {
-  text-align: left;
-  max-width: 600px;
-  padding: 0 40px;
-  color: black;
-}
-
-.bannerContent h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.bannerContent p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.appsDetailsContainer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.7);
-  z-index: 10000;
-}
-.appsDetailsContainer.active { display: flex; }
-.detailsBox {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-}
-
-/* Explore button style + subtle hover */
-
-html{
-  scroll-behavior: smooth;
-}
-
-.exploreBtn {
-  background: linear-gradient(to right, var(--primary-dark), var(--primary-2));
-  color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-}
-
-
-.exploreBtn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 22px rgba(156,66,245,0.18);
-  filter: brightness(1.03);
-  background: #9c42f5;
-}
-
-/* APP CARDS */
+/* APP CARDS GRID */
 .appsGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Always 5 cards in a row */
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 40px 20px;
   padding-left: 55px;
-  padding-top: 100px;
 }
 
 .appsContainer {
-  width: 100%; /* take up full grid column width */
   background-color: var(--white);
   padding: 15px;
   border-radius: 10px;
@@ -242,10 +155,9 @@ html{
   transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-/* App card hover - subtle and friendly */
 .appsContainer:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 14px 30px rgba(106,13,173,0.12);
+  box-shadow: 0 14px 30px rgba(106, 13, 173, 0.12);
 }
 
 .appImage img {
@@ -275,7 +187,6 @@ html{
   gap: 10px;
 }
 
-/* Download & Know More buttons - subtle hover */
 .downloadBtn,
 .knowMoreBtn {
   padding: 8px 14px;
@@ -285,38 +196,33 @@ html{
   cursor: pointer;
   color: white;
   transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
-  background: linear-gradient(var(--primary));
 }
 
 .downloadBtn {
-  background-color:#6a0dad ; /* keep purple but not too bright */
-  box-shadow: 0 3px 8px rgba(156,66,245,0.08);
   background: linear-gradient(to right, var(--primary-dark), var(--primary-2));
+  box-shadow: 0 3px 8px rgba(156, 66, 245, 0.08);
 }
 
-/* On hover, small lift + glow */
 .downloadBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(156,66,245,0.18);
+  box-shadow: 0 8px 18px rgba(156, 66, 245, 0.18);
   filter: brightness(1.02);
   background: #9c42f5;
-  
 }
 
 .knowMoreBtn {
   background-color: var(--primary);
-  box-shadow: 0 3px 8px rgba(106,13,173,0.08);
+  box-shadow: 0 3px 8px rgba(106, 13, 173, 0.08);
 }
 
 .knowMoreBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(106,13,173,0.16);
+  box-shadow: 0 8px 18px rgba(106, 13, 173, 0.16);
   filter: brightness(1.02);
   background: #9c42f5;
 }
 
-/* ===== FOOTER ===== */
-
+/* FOOTER */
 .footer {
   background-color: #6a0dad;
   color: #fff;
@@ -327,14 +233,11 @@ html{
 
 .footerContainer {
   display: flex;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 100px;
   max-width: 1200px;
   margin: auto;
   align-items: start;
   flex-wrap: wrap;
-  margin-left: 100px;
-  margin-right: 100px;
 }
 
 .footerBrand {
@@ -343,13 +246,10 @@ html{
   align-items: flex-start;
 }
 
-/* .footerLogo { height: 50px; margin-bottom: 10px; } */
-
 .footerTitle {
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: -10px;
 }
 
 .footerDesc {
@@ -373,8 +273,6 @@ html{
 .footerLinks {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  flex-wrap: nowrap;
   gap: 10px;
 }
 
@@ -384,15 +282,7 @@ html{
   margin-bottom: 12px;
 }
 
-.footerLinks span {
-  display: block;
-  color: #eee;
-  font-size: 14px;
-  margin-bottom: 8px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
+.footerLinks span,
 .footerLinks a {
   display: block;
   color: #eee;
@@ -415,9 +305,7 @@ html{
   color: #eee;
 }
 
-
-
-/* Small responsive tweaks */
+/* RESPONSIVE */
 @media (max-width: 1100px) {
   .appsGrid {
     grid-template-columns: repeat(4, 1fr);

@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Know More - Apptube</title>
-  <link rel="stylesheet" href="knowMore.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Categories | Apptube</title>
+  <link rel="stylesheet" href="categories.css" />
   <link rel="stylesheet" href="../transition.css">
 <script src="../transition.js" defer></script>
 
 
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const current = location.pathname.split("/").pop();
+      document.querySelectorAll(".navLinks a").forEach(link => {
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </head>
 <body>
+
 <!-- NAVIGATION -->
 <nav>
   <div class="navLogo">
@@ -38,31 +49,26 @@
   </div>
 </nav>
 
-<!-- Active link highlighting -->
-<script>
-  window.addEventListener("DOMContentLoaded", function () {
-    const current = location.pathname.split("/").pop();
-    document.querySelectorAll(".navLinks a").forEach(link => {
-      if (link.getAttribute("href").includes(current)) {
-        link.classList.add("active");
-      }
-    });
-  });
-</script>
+<!-- CATEGORIES CONTENT -->
+<div class="container">
+  <h1>Categories</h1>
+  <div class="categories">
+    <div class="category entertainment"><i class="fas fa-film"></i> Entertainment</div>
+    <div class="category business"><i class="fas fa-briefcase"></i> Business</div>
+    <div class="category news"><i class="fas fa-newspaper"></i> News & Magazines</div>
+    <div class="category shopping"><i class="fas fa-shopping-cart"></i> Shopping</div>
+    <div class="category education"><i class="fas fa-book"></i> Education</div>
+  </div>
+</div>
 
-
-  <main class="know-more-container">
-    <div id="appContent"></div>
-  </main>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footerContainer">
 
-    <!-- Brand & Description -->
     <div class="footerBrand">
       <h2 class="footerTitle">Apptube</h2>
       <p class="footerDesc">
-        Discover, download, and enjoy the best Windows apps & games with Apptube’s sleek design and fast experience.
+        Discover, download, and enjoy the best Windows apps & games with Apptube’s sleek design and lightning-fast experience.
       </p>
       <div class="footerSocial">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -72,7 +78,6 @@
       </div>
     </div>
 
-    <!-- Apps Section -->
     <div class="footerLinks">
       <h3>Apps</h3>
       <span class="feature-item">Top Free Apps</span>
@@ -80,7 +85,6 @@
       <span class="feature-item">Different Categories</span>
     </div>
 
-    <!-- Games Section -->
     <div class="footerLinks">
       <h3>Games</h3>
       <span class="feature-item">Top Free Games</span>
@@ -88,7 +92,6 @@
       <span class="feature-item">Many Types of Games</span>
     </div>
 
-    <!-- Features Section -->
     <div class="footerLinks">
       <h3>Features</h3>
       <span class="feature-item">App Search & Discovery</span>
@@ -98,7 +101,6 @@
       <span class="feature-item">Developer Profiles</span>
     </div>
 
-    <!-- Support Section -->
     <div class="footerLinks">
       <h3>Support</h3>
       <a href="#">Help Center</a>
@@ -108,18 +110,10 @@
 
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footerBottom">
     <p>&copy; 2025 Apptube. All rights reserved.</p>
   </div>
 </footer>
 
-  <!-- Image Modal -->
-  <div id="imageModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImage">
-  </div>
-
-  <script src="knowMore.js"></script>
 </body>
 </html>

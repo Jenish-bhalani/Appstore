@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us - Apptube</title>
-  <link rel="stylesheet" href="contactUs.css" />
+  <title>Apptube - Apps</title>
+  <link rel="stylesheet" href="games.css" />
   <link rel="stylesheet" href="../transition.css">
 <script src="../transition.js" defer></script>
 
 
+  <link rel="icon" type="image/png" href="../homepage/logo-removebg-preview.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script>
     window.addEventListener("DOMContentLoaded", function () {
@@ -24,10 +25,11 @@
 <body>
 
   <!-- NAVIGATION -->
- <nav>
+  <nav>
     <div class="navLogo">
-      <img src="logo-removebg-preview.png" alt="Logo" /> 
-      <h1 class="navTitle">Apptube</h1></div>
+      <img src="../homepage/logo-removebg-preview.png" alt="Logo" /> 
+      <h1 class="navTitle">Apptube</h1>
+    </div>
 
     <div class="navSearch">
       <input type="text" id="search" class="search" placeholder="Search apps or games..." />
@@ -38,7 +40,6 @@
       <li><a href="../apps/apps.html">Apps</a></li>
       <li><a href="../games/games.html">Games</a></li>
       <li><a href="../categories/categories.html">Category</a></li>
-
       <li><a href="../contact Us/contactUs.html">Contact</a></li>
       <li><a href="../about Us/aboutUs.html">About Us</a></li>
     </ul>
@@ -46,50 +47,14 @@
       <a href="../signUp/signUp.html" id="signupBtn">SignUp</a>
       <a href="../login/login.html" id="loginLink">LogIn</a>
     </div>
-
   </nav>
 
-  <div class="container">
-    <div class="left-section">
-      <h1>Contact us</h1>
-      <p>
-        Need to get in touch with us? Either fill out the form with your inquiry or Contact Us on this
-        email <a href="mailto:apptubeofficial05@gmail.com">apptubeofficial05@gmail.com</a>.
-      </p>
-    </div>
-    <div class="right-section">
-      <form id="contactForm">
-        <div class="input-group-row">
-          <div class="input-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" required />
-          </div>
-          <div class="input-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" />
-          </div>
-        </div>
+  <!-- APP CARDS SECTION -->
+  <main id="appsSection" class="appsGrid"></main>
 
-        <div class="input-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" required />
-        </div>
-
-        <div class="input-group">
-          <label for="message">What can we help you with?</label>
-          <textarea id="message" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      
-    </div>
-  </div>
-<!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footerContainer">
-
-      <!-- Brand & Description -->
       <div class="footerBrand">
         <h2 class="footerTitle">Apptube</h2>
         <p class="footerDesc">
@@ -98,28 +63,22 @@
         <div class="footerSocial">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/jenish_bhalani18/"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-
-      <!-- Apps Section -->
       <div class="footerLinks">
         <h3>Apps</h3>
         <span class="feature-item">Top Free Apps</span>
         <span class="feature-item">Free Download</span>
         <span class="feature-item">Different Categories</span>
       </div>
-
-      <!-- Games Section -->
       <div class="footerLinks">
         <h3>Games</h3>
         <span class="feature-item">Top Free Games</span>
         <span class="feature-item">Free Download</span>
         <span class="feature-item">Many Types of Games</span>
       </div>
-
-      <!-- Features Section (plain text items) -->
       <div class="footerLinks">
         <h3>Features</h3>
         <span class="feature-item">App Search & Discovery</span>
@@ -128,22 +87,18 @@
         <span class="feature-item">Secure Download Links</span>
         <span class="feature-item">Developer Profiles</span>
       </div>
-
-      <!-- Support Section -->
       <div class="footerLinks">
         <h3>Support</h3>
         <a href="#">Help Center</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
-
     </div>
-
-    <!-- Footer Bottom -->
     <div class="footerBottom">
       <p>&copy; 2025 Apptube. All rights reserved.</p>
     </div>
   </footer>
-  <script src="contactUs.js"></script>
+
+  <script src="games.js" defer></script>
 </body>
 </html>
