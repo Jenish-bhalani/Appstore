@@ -20,7 +20,7 @@
 
 body {
   padding-top: 80px; /* prevent nav from overlapping banner */
-  background-color: #f9f8ff;
+  background-color: var(--secondary);
   color: #333;
 }
 
@@ -34,7 +34,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   padding: 10px 20px;
   backdrop-filter: blur(12px);
   background-color: rgba(255, 255, 255, 0.25); 
@@ -90,7 +89,7 @@ nav {
   padding-bottom: 2px;
 }
 
-/* subtle underline on hover (smooth) */
+/* subtle underline on hover */
 .navLinks li a::after {
   content: "";
   position: absolute;
@@ -111,11 +110,12 @@ nav {
   width: 100%;
 }
 
-/* actions (signup/login) */
+/* actions (signup/login/hamburger) */
 .navActions {
   display: flex;
   align-items: center;
   gap: 15px;
+  position: relative;
 }
 
 #signupBtn,
@@ -129,23 +129,58 @@ nav {
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
-/* Keep login similar but slightly different hover */
 #loginLink {
   background: var(--primary);
 }
 
-/* subtle hover for nav action buttons */
 #signupBtn:hover,
 #loginLink:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(154,66,245,0.14);
   filter: brightness(1.03);
-  background: #9c42f5;
+  background: var(--primary-2);
+}
+
+#bar {
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--primary-dark);
+}
+
+/* Sidebar (hamburger menu) */
+#barOptions {
+  position: fixed;
+  top: 70px; /* below nav */
+  right: -220px; /* hidden initially */
+  width: 200px;
+  background: var(--primary-2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: right 0.3s ease;
+  z-index: 999;
+  border-radius: 10px 0 0 10px;
+}
+
+#barOptions.active {
+  right: 0;
+}
+
+#barOptions a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.18s ease;
+}
+
+#barOptions a:hover {
+  transform: translateX(5px);
 }
 
 /* HERO BANNER */
 .heroBanner {
-  background-image: linear-gradient(to bottom, #6a0dad73, rgba(249, 248, 255, 0.9)), url('banner.jpg');
+  background-image: linear-gradient(to bottom, #6a0dad73,var(--secondary)), url('herobanner.png');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -155,17 +190,15 @@ nav {
   justify-content: flex-start;
   text-align: center;
   color: white;
-  margin-top: -80px;
   padding-top: 160px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
+  filter: contrast(1.5) brightness(1.05) blur(1.2); 
+} 
 
 .bannerContent {
   text-align: left;
   max-width: 600px;
   padding: 0 40px;
-  color: black;
+  color: var(--primary-dark);
 }
 
 .bannerContent h1 {
@@ -176,6 +209,15 @@ nav {
 .bannerContent p {
   font-size: 1.2rem;
   margin-bottom: 20px;
+}
+
+.header{
+  color: var(--primary);
+  margin-bottom: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding: 2rem;
 }
 
 .appsDetailsContainer {
@@ -229,7 +271,7 @@ html{
   gap: 20px;
   padding: 40px 20px;
   padding-left: 55px;
-  padding-top: 100px;
+  /* padding-top: 100px; */
 }
 
 .appsContainer {
@@ -318,7 +360,7 @@ html{
 /* ===== FOOTER ===== */
 
 .footer {
-  background-color: #6a0dad;
+  background-color: #6a0dad ;
   color: #fff;
   padding: 50px 20px 20px;
   margin-top: 50px;

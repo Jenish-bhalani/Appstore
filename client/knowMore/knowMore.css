@@ -1,6 +1,6 @@
 :root {
   --primary: #6a0dad;
-  --primary-light: #9c42f5;
+  --primary-2: #9c42f5;
   --primary-dark: #3a006e;
   --white: #ffffff;
   --secondary: #f5e6ff;
@@ -17,18 +17,29 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary);
+  color: #333;
+
+  padding-top: 80px; /* prevent nav overlap */
+}
+
 /* ===== NAVIGATION ===== */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.25); 
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -48,7 +59,7 @@ nav {
   color: var(--primary);
   margin-left: 10px;
   text-shadow: 0 0 4px rgba(154, 66, 245, 0.4);
-}
+} 
 
 .navSearch input {
   padding: 6px 16px;
@@ -58,11 +69,18 @@ nav {
   font-size: 1rem;
 }
 
+/* NAV LINKS */
 .navLinks {
   display: flex;
   list-style: none;
   gap: 18px;
   align-items: center;
+}
+
+.navLinks a.active {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: large;
 }
 
 .navLinks li a {
@@ -74,11 +92,7 @@ nav {
   padding-bottom: 2px;
 }
 
-.navLinks li a.active {
-  color: var(--primary);
-  font-weight: bold;
-}
-
+/* subtle underline on hover */
 .navLinks li a::after {
   content: "";
   position: absolute;
@@ -86,12 +100,12 @@ nav {
   bottom: -6px;
   width: 0%;
   height: 2px;
-  background: var(--primary-light);
+  background: var(--primary-2);
   transition: width 0.22s ease;
 }
 
 .navLinks li a:hover {
-  color: var(--primary-light);
+  color: var(--primary-2);
   transform: translateY(-2px);
 }
 
@@ -99,10 +113,12 @@ nav {
   width: 100%;
 }
 
+/* actions (signup/login/hamburger) */
 .navActions {
   display: flex;
   align-items: center;
   gap: 15px;
+  position: relative;
 }
 
 #signupBtn,
@@ -110,7 +126,7 @@ nav {
   text-decoration: none;
   padding: 6px 14px;
   border-radius: 20px;
-  background: linear-gradient(to right, var(--primary-dark), var(--primary-light));
+  background: linear-gradient(to right, var(--primary-dark), var(--primary-2));
   color: white;
   font-weight: bold;
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
@@ -125,7 +141,44 @@ nav {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(154,66,245,0.14);
   filter: brightness(1.03);
-  background: #9c42f5;
+  background: var(--primary-2);
+}
+
+#bar {
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--primary-dark);
+}
+
+/* Sidebar (hamburger menu) */
+#barOptions {
+  position: fixed;
+  top: 70px; /* below nav */
+  right: -220px; /* hidden initially */
+  width: 200px;
+  background: var(--primary-2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: right 0.3s ease;
+  z-index: 999;
+  border-radius: 10px 0 0 10px;
+}
+
+#barOptions.active {
+  right: 0;
+}
+
+#barOptions a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.18s ease;
+}
+
+#barOptions a:hover {
+  transform: translateX(5px);
 }
 
 /* ===== FOOTER ===== */
@@ -229,16 +282,6 @@ nav {
   .footerLinks .feature-item { display: block; margin-bottom: 6px; }
 }
 
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f8ff;
-  color: #333;
-
-  padding-top: 80px; /* prevent nav overlap */
-}
 
 .know-more-container {
   max-width: 900px;

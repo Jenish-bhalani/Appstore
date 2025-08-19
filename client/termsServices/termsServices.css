@@ -6,6 +6,7 @@
   --secondary: #f5e6ff;
   --gray: #e0e0e0;
   --dark-gray: #5a5a5a;
+  --error: #ff3860;
 }
 
 /* Reset & Base */
@@ -13,16 +14,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
 body {
   background-color: var(--secondary);
-  color: #333;
-  padding-top: 80px;
+  color: var(--dark-gray);
+  line-height: 1.6;
 }
 
-/* NAVIGATION (About Us style) */
+/* Navbar */
 nav {
   position: fixed;
   top: 0;
@@ -139,159 +140,81 @@ nav {
   background: var(--primary-2);
 }
 
-#bar {
-  font-size: 26px;
-  cursor: pointer;
-  color: var(--primary-dark);
-}
-
-/* Sidebar (hamburger menu) */
-#barOptions {
-  position: fixed;
-  top: 70px; /* below nav */
-  right: -220px; /* hidden initially */
-  width: 200px;
-  background: var(--primary-2);
-  padding: 20px;
+/* Hero Banner Container */
+.heroBanner {
+  position: relative;
+  background: var(--secondary);
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  transition: right 0.3s ease;
-  z-index: 999;
-  border-radius: 10px 0 0 10px;
-}
-
-#barOptions.active {
-  right: 0;
-}
-
-#barOptions a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.18s ease;
-}
-
-#barOptions a:hover {
-  transform: translateX(5px);
-}
-
-/* CONTAINER & CATEGORIES */
-.container {
-  max-width: 1000px;
-  margin: auto;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 0 20px;
+  padding-top: 50px;
+  overflow: hidden;
+  margin-bottom: 100px;
+} 
+
+/* Hero Text Inside Banner */
+.heroText {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
 }
 
-.container h1 {
-  color: var(--primary);
-  margin-bottom: 2rem;
+.heroText h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5rem;
-}
-
-.category {
-  padding: 20px;
-  border-radius: 15px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--white);
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.category:hover {
-  transform: translateY(-5px);
-}
-
-.entertainment { background-color: #ff4757; }
-.business { background-color: #1e90ff; }
-.news { background-color: #ffa502; }
-.shopping { background-color: #2ed573; }
-.education { background-color: #9b59b6; }
-
-.category i {
-  margin-right: 8px;
-}
-
-/* FOOTER */
-.footer {
-  background-color: #6a0dad;
-  color: #fff;
-  padding: 50px 20px 20px;
-  margin-top: 50px;
-  width: 100%;
-}
-
-.footerContainer {
-  display: flex;
-  gap: 100px;
-  max-width: 1200px;
-  margin: auto;
-  align-items: start;
-  flex-wrap: wrap;
-}
-
-.footerBrand {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.footerTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.footerDesc {
-  margin: 15px 0;
-  line-height: 1.5;
-  font-size: 0.95rem;
-  max-width: 280px;
-}
-
-.footerSocial a {
-  color: #fff;
-  margin-right: 12px;
+.heroText p {
   font-size: 1.2rem;
-  transition: color 0.3s ease;
+  line-height: 1.8;
+  color: var(--dark-gray);
 }
 
-.footerSocial a:hover {
-  color: #f5c542;
+/* Main Content */
+.privacyContainer {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-.footerLinks {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footerLinks h3 {
-  font-size: 1.1rem;
-}
-
-.footerLinks span,
-.footerLinks a {
-  color: #eee;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.footerLinks a:hover {
-  color: #f5c542;
-}
-
-.footerBottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
+.privacyContainer h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
   text-align: center;
-  padding-top: 15px;
-  margin-top: 30px;
-  font-size: 0.85rem;
-  color: #eee;
+}
+
+.privacyContainer h2 {
+  font-size: 1.5rem;
+  color: var(--primary-2);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.privacyContainer p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.privacyContainer a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: var(--primary);
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: var(--white);
 }
