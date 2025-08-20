@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apptube | Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-  </style>
-  <link rel="stylesheet" href="login.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apptube | Contact Us</title>
+  <link rel="stylesheet" href="contactUs.css" />
   <link rel="stylesheet" href="../transition.css">
 <script src="../transition.js" defer></script>
-  <link rel="icon" type="image/png" href="../login/logo-removebg-preview.png" />
+
+  <link rel="icon" type="image/png" href="../contact Us/logo-removebg-preview.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script>
     window.addEventListener("DOMContentLoaded", function () {
@@ -28,7 +24,7 @@
 <body>
 
   <!-- NAVIGATION -->
-  <nav>
+<nav>
   <div class="navLogo">
     <img src="logo-removebg-preview.png" alt="Logo" /> 
     <h1 class="navTitle">Apptube</h1>
@@ -59,35 +55,43 @@
   <a href="#" id="logoutBtn">Log Out</a>
 </div>
 
-<main>
-  <div class="registration-container">
-    <div class="logo-container">
-      <div class="logo-text">Apptube</div>
-      <p class="tagline">Welcome back! Sign in to continue</p>
+  <div class="container">
+    <div class="left-section">
+      <h1>Contact us</h1><br>
+      <p>
+        Need to get in touch with us? Either fill out the form with your inquiry or Contact Us on this
+        email <a href="mailto:apptubeofficial05@gmail.com">apptubeofficial05@gmail.com</a>.
+      </p>
     </div>
+    <div class="right-section">
+      <form id="contactForm">
+        <div class="input-group-row">
+          <div class="input-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" required />
+          </div>
+          <div class="input-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" />
+          </div>
+        </div>
 
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="username">Email or Username</label>
-        <input type="text" id="username" name="username" class="form-control" required />
-        <div class="error-message" id="usernameError">Please enter your email or username</div>
-      </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="example@gmail.com" required />
+        </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control" required />
-        <div class="error-message" id="passwordError">Please enter your password</div>
-      </div>
+        <div class="input-group">
+          <label for="message">What can we help you with?</label>
+          <textarea id="message" required></textarea>
+        </div>
 
-      <button type="submit" class="btn btn-primary">Sign In</button>
-    </form>
-
-    <div class="login-link">
-      Don't have an account? <a href="../signUp/signUp.html">SignUp</a>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
     </div>
   </div>
-</main>
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <footer class="footer">
     <div class="footerContainer">
 
@@ -146,7 +150,6 @@
       <p>&copy; 2025 Apptube. All rights reserved.</p>
     </div>
   </footer>
-
-  <script src="login.js"></script>
+  <script src="contactUs.js"></script>
 </body>
 </html>

@@ -1,17 +1,22 @@
-const barOptions = document.querySelector('.barOptions');
-const bar = document.querySelector('#bar');
-const xmark = document.querySelector('#xmark');
-const appsDetailsContainer = document.querySelector('.appsDetailsContainer');
+const barOptions = document.querySelector('#barOptions'); 
+const bar = document.querySelector('#bar'); 
+const appsDetailsContainer = document.querySelector('.appsDetailsContainer'); 
+const logoutBtn = document.querySelector('#logoutBtn'); 
 
-// Open sidebar
+// Toggle sidebar (hamburger)
 bar.addEventListener('click', () => {
-  barOptions.classList.add('active');
+  barOptions.classList.toggle('active');
 });
 
-// Close sidebar
-xmark.addEventListener('click', () => {
-  barOptions.classList.remove('active');
-});
+// Handle logout button
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert("You have been logged out."); 
+    // 👉 Replace alert with real logout logic when backend is ready
+    // Example: window.location.href = "/login.html";
+  });
+}
 
 // Fetch items from database
 const fetchApiURL = 'http://localhost:3000/api/getApps';
@@ -19,8 +24,8 @@ const fetchApiURL = 'http://localhost:3000/api/getApps';
 async function fetchItems() {
   const result = await fetch(fetchApiURL);
   const data = await result.json();
-
   const main = document.querySelector('main');
+
   data.forEach((item) => {
     main.innerHTML += `
       <div class="appsContainer">
@@ -38,6 +43,7 @@ async function fetchItems() {
       </div>`;
   });
 }
+
 fetchItems();
 
 // Show details when clicking "Know More"

@@ -1,0 +1,7 @@
+/* transition.css */
+body {
+  transition: opacity 0.4s ease;
+}
+body.fade-out {
+  opacity: 0;
+}

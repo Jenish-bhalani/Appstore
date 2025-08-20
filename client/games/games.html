@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apptube | Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-  </style>
-  <link rel="stylesheet" href="login.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apptube | Games</title>
+  <link rel="stylesheet" href="games.css" />
   <link rel="stylesheet" href="../transition.css">
 <script src="../transition.js" defer></script>
-  <link rel="icon" type="image/png" href="../login/logo-removebg-preview.png" />
+
+
+  <link rel="icon" type="image/png" href="../games/logo-removebg-preview.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script>
     window.addEventListener("DOMContentLoaded", function () {
@@ -59,39 +56,15 @@
   <a href="#" id="logoutBtn">Log Out</a>
 </div>
 
-<main>
-  <div class="registration-container">
-    <div class="logo-container">
-      <div class="logo-text">Apptube</div>
-      <p class="tagline">Welcome back! Sign in to continue</p>
-    </div>
-
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="username">Email or Username</label>
-        <input type="text" id="username" name="username" class="form-control" required />
-        <div class="error-message" id="usernameError">Please enter your email or username</div>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control" required />
-        <div class="error-message" id="passwordError">Please enter your password</div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Sign In</button>
-    </form>
-
-    <div class="login-link">
-      Don't have an account? <a href="../signUp/signUp.html">SignUp</a>
-    </div>
-  </div>
-</main>
+  <!-- APP CARDS SECTION -->
+   <div class="header">
+    <h1>Games</h1>
+   </div>
+  
+  <main id="appsSection" class="appsGrid"></main>
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footerContainer">
-
-      <!-- Brand & Description -->
       <div class="footerBrand">
         <h2 class="footerTitle">Apptube</h2>
         <p class="footerDesc">
@@ -100,28 +73,22 @@
         <div class="footerSocial">
           <a href="https://www.facebook.com/profile.php?id=61579350813671"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/apptubeofficial05/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/apptubeofficial05/>"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-
-      <!-- Apps Section -->
       <div class="footerLinks">
         <h3>Apps</h3>
         <span class="feature-item">Top Free Apps</span>
         <span class="feature-item">Free Download</span>
         <span class="feature-item">Different Categories</span>
       </div>
-
-      <!-- Games Section -->
       <div class="footerLinks">
         <h3>Games</h3>
         <span class="feature-item">Top Free Games</span>
         <span class="feature-item">Free Download</span>
         <span class="feature-item">Many Types of Games</span>
       </div>
-
-      <!-- Features Section (plain text items) -->
       <div class="footerLinks">
         <h3>Features</h3>
         <span class="feature-item">App Search & Discovery</span>
@@ -130,23 +97,18 @@
         <span class="feature-item">Secure Download Links</span>
         <span class="feature-item">Developer Profiles</span>
       </div>
-
-      <!-- Support Section -->
       <div class="footerLinks">
         <h3>Support</h3>
         <a href="#">Help Center</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
-
     </div>
-
-    <!-- Footer Bottom -->
     <div class="footerBottom">
       <p>&copy; 2025 Apptube. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="login.js"></script>
+  <script src="games.js" defer></script>
 </body>
 </html>
