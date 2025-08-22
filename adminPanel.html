@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apptube | Admin Panel</title>
+  <link rel="stylesheet" href="adminPanelStyle.css"/>
+  <script src="adminScript.js" defer></script>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Apptube Admin</h2>
+    <ul>
+      <li class="active" data-section="dashboard">Dashboard</li>
+      <li data-section="apps">Apps</li>
+      <li data-section="games">Games</li>
+      <li data-section="categories">Categories</li>
+      <li data-section="users">Users</li>
+      <li data-section="messages">Messages</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <!-- Dashboard -->
+    <section id="dashboard" class="content-section active">
+      <h1>Dashboard</h1>
+      <div class="cards">
+        <div class="card">Total Apps: <span id="totalApps">0</span></div>
+        <div class="card">Total Games: <span id="totalGames">0</span></div>
+        <div class="card">Categories: <span id="totalCategories">0</span></div>
+        <div class="card">Users: <span id="totalUsers">0</span></div>
+      </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps" class="content-section">
+      <h1>Manage Apps</h1>
+      <button class="btn" onclick="openForm('appForm')">+ Add New App</button>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Category</th><th>Type</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="appList"></tbody>
+      </table>
+
+      <div id="appForm" class="form-container hidden">
+        <h2>Add / Edit App</h2>
+        <form>
+          <input type="text" placeholder="App Name" required />
+          <input type="text" placeholder="Category" required />
+          <select>
+            <option>Free</option>
+            <option>Paid</option>
+          </select>
+          <input type="file" />
+          <div class="form-actions">
+            <button type="submit" class="btn">Save</button>
+            <button type="button" class="btn cancel" onclick="closeForm('appForm')">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="content-section">
+      <h1>Manage Games</h1>
+      <button class="btn" onclick="openForm('gameForm')">+ Add New Game</button>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Category</th><th>Type</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="gameList"></tbody>
+      </table>
+
+      <div id="gameForm" class="form-container hidden">
+        <h2>Add / Edit Game</h2>
+        <form>
+          <input type="text" placeholder="Game Name" required />
+          <input type="text" placeholder="Category" required />
+          <select>
+            <option>Free</option>
+            <option>Paid</option>
+          </select>
+          <input type="file" />
+          <div class="form-actions">
+            <button type="submit" class="btn">Save</button>
+            <button type="button" class="btn cancel" onclick="closeForm('gameForm')">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="content-section">
+      <h1>Manage Categories</h1>
+      <button class="btn" onclick="openForm('categoryForm')">+ Add Category</button>
+      <ul id="categoryList"></ul>
+
+      <div id="categoryForm" class="form-container hidden">
+        <h2>Add Category</h2>
+        <form>
+          <input type="text" placeholder="Category Name" required />
+          <div class="form-actions">
+            <button type="submit" class="btn">Save</button>
+            <button type="button" class="btn cancel" onclick="closeForm('categoryForm')">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Users Section -->
+    <section id="users" class="content-section">
+      <h1>Manage Users</h1>
+      <table>
+        <thead>
+          <tr><th>Username</th><th>Email</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="userList"></tbody>
+      </table>
+    </section>
+
+    <!-- Messages Section -->
+    <section id="messages" class="content-section">
+      <h1>User Messages</h1>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Message</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="messageList"></tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>
