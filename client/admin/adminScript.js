@@ -9,6 +9,16 @@ document.querySelectorAll(".sidebar ul li").forEach(item => {
   });
 });
 
+// helper to read selected category from custom dropdown
+function getSelectedCategory(formId) {
+  const form = document.getElementById(formId);
+  const selected = form.querySelector('.custom-select .selected');
+  if (!selected) return '';
+  const value = selected.textContent.trim();
+  return (value === '--Select Category--') ? '' : value;
+}
+
+
 // Form open/close (now supports popup/modal behavior)
 // openForm(id, editIndex) - if editIndex is provided, form will be used to edit that index
 function openForm(id, editIndex = null) {
@@ -98,8 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const form = e.target;
     const name = form.appName.value.trim();
-    const category = form.category.value.trim();
+    const category = getSelectedCategory('appForm');  
     const description = form.description.value.trim();
+
+    if (!name || !category || !description || !logoFile || !zipFile) {
+      alert("Please fill all the fields before saving.");
+      return;
+    }
 
     // get current edit index (if editing)
     const editIndexRaw = document.getElementById('appForm').dataset.editIndex;
@@ -151,8 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const form = e.target;
     const name = form.gameName.value.trim();
-    const category = form.category.value.trim();
+    const category = getSelectedCategory('gameForm'); 
+
     const description = form.description.value.trim();
+
+      if (!name || !category || !description) {
+        alert("Please fill all the fields before saving.");
+        return; // 
+      }
 
     const editIndexRaw = document.getElementById('gameForm').dataset.editIndex;
     const editIndex = editIndexRaw ? parseInt(editIndexRaw, 10) : null;
