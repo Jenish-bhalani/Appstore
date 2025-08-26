@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apptube | Admin Panel</title>
+  <link rel="stylesheet" href="adminPanelStyle.css"/>
+  <script src="adminScript.js" defer></script>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Apptube Admin</h2>
+    <ul>
+      <li class="active" data-section="dashboard">Dashboard</li>
+      <li data-section="apps">Apps</li>
+      <li data-section="games">Games</li>
+      <li data-section="users">Users</li>
+      <li data-section="messages">Messages</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <!-- Dashboard -->
+    <section id="dashboard" class="content-section active">
+      <h1>Dashboard</h1>
+      <div class="cards">
+        <div class="card">Total Apps: <span id="totalApps">0</span></div>
+        <div class="card">Total Games: <span id="totalGames">0</span></div>
+        <div class="card">Users: <span id="totalUsers">0</span></div>
+      </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps" class="content-section">
+      <h1>Manage Apps</h1>
+      <button class="btn" id="openAddApp">+ Add New App</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Files</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="appList"></tbody>
+      </table>
+
+      <!-- kept id and class names; this will act as a popup modal now -->
+      <div id="appForm" class="form-container hidden" aria-hidden="true">
+        <h2 id="appFormTitle">Add / Edit App</h2>
+        <form id="appFormElement">
+          <input type="text" placeholder="App Name" name="appName" required />
+
+          <label class="file-label">
+            Upload App Logo:
+            <input type="file" name="appLogo" accept="image/*" />
+            <small id="appCurrentLogo" style="font-weight:normal;margin-top:6px;display:block;color:#666"></small>
+          </label>
+
+          <label class="file-label">
+            Upload App File (ZIP):
+            <input type="file" name="appZip" accept=".zip" />
+            <small id="appCurrentZip" style="font-weight:normal;margin-top:6px;display:block;color:#666"></small>
+          </label>
+
+          <div class="custom-select">
+            <div class="selected">--Select Category--</div>
+              <div class="options">
+              <div class="option">Entertainment</div>
+              <div class="option">Business</div>
+              <div class="option">News & Magazines</div>
+              <div class="option">Shopping</div>
+              <div class="option">Education</div>
+            </div>
+          </div>
+
+
+          <textarea placeholder="Description" name="description" rows="10" maxlength="3000"></textarea>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Save</button>
+            <button type="button" class="btn cancel" id="closeAppForm">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="content-section">
+      <h1>Manage Games</h1>
+      <button class="btn" id="openAddGame">+ Add New Game</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Files</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="gameList"></tbody>
+      </table>
+
+      <!-- kept id and class names; this will act as a popup modal now -->
+      <div id="gameForm" class="form-container hidden" aria-hidden="true">
+        <h2 id="gameFormTitle">Add / Edit Game</h2>
+        <form id="gameFormElement">
+          <input type="text" placeholder="Game Name" name="gameName" required />
+
+          <label class="file-label">
+            Upload Game Logo:
+            <input type="file" name="gameLogo" accept="image/*" />
+            <small id="gameCurrentLogo" style="font-weight:normal;margin-top:6px;display:block;color:#666"></small>
+          </label>
+
+          <label class="file-label">
+            Upload Game File (ZIP):
+            <input type="file" name="gameZip" accept=".zip" />
+            <small id="gameCurrentZip" style="font-weight:normal;margin-top:6px;display:block;color:#666"></small>
+          </label>
+
+          <div class="custom-select">
+            <div class="selected">--Select Category--</div>
+              <div class="options">
+              <div class="option">Entertainment</div>
+              <div class="option">Business</div>
+              <div class="option">News & Magazines</div>
+              <div class="option">Shopping</div>
+              <div class="option">Education</div>
+            </div>
+          </div>
+
+          <textarea placeholder="Description" name="description" rows="10" maxlength="3000"></textarea>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Save</button>
+            <button type="button" class="btn cancel" id="closeGameForm">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Users Section -->
+    <section id="users" class="content-section">
+      <h1>Manage Users</h1>
+      <table>
+        <thead>
+          <tr><th>FirstName</th><th>LastName</th><th>Email</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="userList"></tbody>
+      </table>
+    </section>
+
+    <!-- Messages Section -->
+    <section id="messages" class="content-section">
+      <h1>User Messages</h1>
+      <table>
+        <thead>
+          <tr><th>FirstName</th><th>LastName</th><th>Email</th><th>Message</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="messageList"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- modal backdrop (keeps design same but provides overlay when forms open) -->
+  <div id="modalBackdrop" class="hidden" aria-hidden="true"></div>
+</body>
+</html>

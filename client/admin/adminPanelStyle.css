@@ -1,0 +1,320 @@
+:root {
+  --primary: #6a0dad;
+  --primary-light: #9c42f5;
+  --white: #ffffff;
+  --gray: #f4f4f4;
+  --dark-gray: #555;
+  --secondary: #f5e6ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--gray);
+}
+
+.sidebar {
+  width: 220px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: ease 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background: var(--primary-light);
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1;
+}
+
+.btn {
+  background: var(--primary);
+  color: var(--white);
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 10px 0;
+}
+
+.btn:hover {
+  background: var(--primary-light);
+}
+
+.btn.cancel {
+  background: var(--dark-gray);
+}
+
+.btn.cancel:hover {
+  background: #838282;
+}
+
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+table th {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Form Container */
+.form-container {
+  margin-top: 20px;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+}
+
+/* preserve hidden behavior */
+.form-container.hidden {
+  display: none;
+}
+
+/* treat forms as normal when inline; when used as modal we'll override positioning */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Inputs */
+.form-container input[type="text"],
+.form-container textarea,
+.form-container input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-container input[type="text"]:focus,
+.form-container textarea:focus,
+.form-container input[type="file"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(106, 13, 173, 0.3);
+}
+
+/* File label */
+.file-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  margin-top: 8px;
+  color: var(--dark-gray);
+}
+
+/* Textarea for description */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 300px;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+/* Dropdown styling */
+/* Wrapper */
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+
+/* Selected box */
+.custom-select .selected {
+  padding: 12px 40px 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--dark-gray);
+  position: relative;
+  transition: border 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Options container */
+.custom-select .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px; /* adjust as needed */
+  overflow-y: auto; /* enable vertical scroll */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Individual option */
+.custom-select .option {
+  padding: 12px 15px;
+  color: var(--dark-gray);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Hover effect for options */
+.custom-select .option:hover {
+  background: var(--primary-light);
+  color: var(--white);
+}
+
+/* Open state */
+.custom-select.open .options {
+  max-height: 200px; /* adjust depending on number of options */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Hover effect for selected box */
+.custom-select .selected:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 4px 10px rgba(106,13,173,0.15);
+}
+
+/* Selected box default */
+.custom-select .selected {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+/* When a category is selected */
+.custom-select .selected.selected-active {
+  background: var(--secondary);  /* or any color you want */
+  color: var(--dark-gray);
+  border-color: var(--primary);
+}
+
+
+/* Form buttons */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.form-actions .btn {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+.form-actions .btn.cancel {
+  background: var(--dark-gray);
+  color: var(--white);
+}
+
+.form-actions .btn.cancel:hover {
+  background: #838282;
+}
+/* Responsive */
+@media (max-width: 650px) {
+  .form-container {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* ---------- Minimal modal styling (added only to keep popup behavior) ---------- */
+
+/* backdrop (overlay behind modal) */
+#modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 999;
+}
+
+/* hidden class already used; ensure overlay hidden by default */
+#modalBackdrop.hidden {
+  display: none;
+}
+
+/* when a .form-container is used as modal we add .modal-active class to it from JS */
+.form-container.modal-active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  margin: 0;
+  max-width: 700px;
+  width: calc(100% - 40px);
+}

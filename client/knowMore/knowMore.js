@@ -70,6 +70,7 @@ const apps = {
     },
     screenshot: "example_screenshot.png"
   }
+
 };
 
 // ===== Utility: Get URL Parameter =====
@@ -95,9 +96,11 @@ function renderAppPage(appKey) {
       <h1 class="app-title">${app.title}</h1>
     </div>
 
-    <div class="app-image-container">
-      <img src="${app.screenshot}" alt="${app.title} Screenshot" class="app-image" id="clickableImage" />
-    </div>
+   <!-- To add Image(For now it's in Comment line)
+<div class="app-image-container">
+  <img src="${app.screenshot}" alt="${app.title} Screenshot" class="app-image" id="clickableImage" />
+</div>
+      -->
 
 
     <section class="app-description">

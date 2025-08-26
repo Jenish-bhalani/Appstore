@@ -1,6 +1,6 @@
 const barOptions = document.querySelector('#barOptions'); 
 const bar = document.querySelector('#bar'); 
-const logoutBtn = document.querySelector('#logoutBtn'); 
+const logoutBtn = document.querySelector('#logoutBtn');
 
 // Toggle sidebar (hamburger)
 bar.addEventListener('click', () => {
