@@ -55,17 +55,17 @@
 
           <label class="file-label">
             Upload App Logo:
-            <input type="file" name="appLogo" accept="image/*" />
+            <input type="file" name="appLogo" accept="image/*" required/>
             <small id="appCurrentLogo" style="font-weight:normal;margin-top:6px;display:block;color:#666"></small>
           </label>
 
           <label class="file-label">
             Upload App File (ZIP):
-            <input type="file" name="appZip" accept=".zip" />
+            <input type="file" name="appZip" accept=".zip" required/>
             <small id="appCurrentZip" style="font-weight:normal;margin-top:6px;display:block;color:#666"></small>
           </label>
 
-          <div class="custom-select">
+          <div class="custom-select" required>
             <div class="selected">--Select Category--</div>
               <div class="options">
               <div class="option">Entertainment</div>

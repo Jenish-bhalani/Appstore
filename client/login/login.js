@@ -19,26 +19,26 @@ if (logoutBtn) {
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const username = document.getElementById('username').value.trim();
+  const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value.trim();
 
-  const usernameError = document.getElementById('usernameError');
+  const emailError = document.getElementById('emailError');
   const passwordError = document.getElementById('passwordError'); 
 
-  usernameError.style.display = 'none';
+  emailError.style.display = 'none';
   passwordError.style.display = 'none';
 
   let isValid = true;
 
   const emailPattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
 
-  if (username === "") {
-    usernameError.textContent = "Email is required";
-    usernameError.style.display = "block";
+  if (email === "") {
+    emailError.textContent = "Email is required";
+    emailError.style.display = "block";
     isValid = false;
-  } else if (!emailPattern.test(username)) {
-    usernameError.textContent = "Enter a valid email address";
-    usernameError.style.display = "block";
+  } else if (!emailPattern.test(email)) {
+    emailError.textContent = "Enter a valid email address";
+    emailError.style.display = "block";
     isValid = false;
   }
 

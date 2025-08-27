@@ -1,6 +1,6 @@
-  const barOptions = document.querySelector('#barOptions'); 
-  const bar = document.querySelector('#bar'); 
-  const logoutBtn = document.querySelector('#logoutBtn'); 
+const barOptions = document.querySelector('#barOptions'); 
+const bar = document.querySelector('#bar'); 
+const logoutBtn = document.querySelector('#logoutBtn'); 
 
 // Toggle sidebar (hamburger)
 bar.addEventListener('click', () => {
@@ -20,49 +20,79 @@ if (logoutBtn) {
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const fname = document.getElementById("firstName").value.trim();
-  const lname = document.getElementById("lastName").value.trim();
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
   const email = document.getElementById("email").value.trim();
-  const pass = document.getElementById("password").value;
-  const cpass = document.getElementById("confirmPassword").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
 
-  let hasError = false;
+  const firstNameError = document.getElementById("firstNameError");
+  const lastNameError = document.getElementById("lastNameError");
+  const emailError = document.getElementById("emailError");
+  const passwordError = document.getElementById("passwordError");
+  const confirmPasswordError = document.getElementById("confirmPasswordError");
+
+  // Reset all error messages
+  firstNameError.style.display = "none";
+  lastNameError.style.display = "none";
+  emailError.style.display = "none";
+  passwordError.style.display = "none";
+  confirmPasswordError.style.display = "none";
+
+  let isValid = true;
   const emailPattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
 
-  document.querySelectorAll(".error-message").forEach(el => el.style.display = "none");
-
-  if (fname === "") {
-    document.getElementById("firstNameError").style.display = "block";
-    hasError = true;
+  // First Name validation
+  if (firstName === "") {
+    firstNameError.textContent = "Please enter your first name.";
+    firstNameError.style.display = "block";
+    isValid = false;
   }
 
-  if (lname === "") {
-    document.getElementById("lastNameError").style.display = "block";
-    hasError = true;
+  // Last Name validation
+  if (lastName === "") {
+    lastNameError.textContent = "Please enter your last name.";
+    lastNameError.style.display = "block";
+    isValid = false;
   }
 
-  if (email === "" || !emailRegex.test(email)) {
-    document.getElementById("emailError").style.display = "block";
-    hasError = true;
+  // Email validation
+  if (email === "") {
+    emailError.textContent = "Email is required.";
+    emailError.style.display = "block";
+    isValid = false;
+  } else if (!emailPattern.test(email)) {
+    emailError.textContent = "Please enter a valid email address.";
+    emailError.style.display = "block";
+    isValid = false;
   }
 
-  if (pass.length < 8) {
-    document.getElementById("passwordError").style.display = "block";
-    hasError = true;
+  // Password validation
+  if (password === "") {
+    passwordError.textContent = "Password is required.";
+    passwordError.style.display = "block";
+    isValid = false;
+  } else if (password.length < 8) {
+    passwordError.textContent = "Password must be at least 8 characters.";
+    passwordError.style.display = "block";
+    isValid = false;
   }
 
-  if (pass.includes(" ")) {
-    alert("Password must not contain spaces.");
-    hasError = true;
+  // Confirm Password validation
+  if (confirmPassword === "") {
+    confirmPasswordError.textContent = "Please confirm your password.";
+    confirmPasswordError.style.display = "block";
+    isValid = false;
+  } else if (password !== confirmPassword) {
+    confirmPasswordError.textContent = "Passwords do not match.";
+    confirmPasswordError.style.display = "block";
+    isValid = false;
   }
 
-  if (pass !== cpass) {
-    document.getElementById("confirmPasswordError").style.display = "block";
-    hasError = true;
-  }
-
-  if (!hasError) {
+  // If all validations pass
+  if (isValid) {
     alert("Registration successful!");
-    document.getElementById("registrationForm").reset();
+    // You can redirect to a new page or show a success message here
+    // window.location.href = "/success.html";
   }
 });
