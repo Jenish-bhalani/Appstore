@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apptube | Home</title>
+  <link rel="stylesheet" href="homePage.css" />
+  <link rel="stylesheet" href="../transition.css">
+<script src="../transition.js" defer></script>
+
+
+  <link rel="icon" type="image/png" href="../images/logo-removebg-preview.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const current = location.pathname.split("/").pop();
+      document.querySelectorAll(".navLinks a").forEach(link => {
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+<nav>
+  <div class="navLogo">
+    <img src="../images/logo-removebg-preview.png" alt="Logo" /> 
+    <h1 class="navTitle">Apptube</h1>
+  </div>
+
+  <div class="navSearch">
+    <input type="text" id="search" class="search" placeholder="Search apps or games..." />
+  </div>
+
+  <ul class="navLinks">
+    <li><a href="../homepage/homePage.html">Home</a></li>
+    <li><a href="../apps/apps.html">Apps</a></li>
+    <li><a href="../games/games.html">Games</a></li>
+    <li><a href="../categories/categories.html">Category</a></li>
+    <li><a href="../contact Us/contactUs.html">Contact</a></li>
+    <li><a href="../about Us/aboutUs.html">About Us</a></li>
+  </ul>
+
+  <div class="navActions">
+    <a href="../signUp/signUp.html" id="signupBtn">SignUp</a>
+    <a href="../login/login.html" id="loginLink">LogIn</a>
+    <i id="bar" class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div id="barOptions">
+  <a href="#" id="logoutBtn">Log Out</a>
+</div>
+  
+  <!-- BANNER SECTION -->
+
+  <div class="heroBanner">
+    <div class="bannerBg"></div>
+    <div class="bannerContent">
+      <h1>Discover Amazing Apps & Games</h1>
+      <p>Apptube is your one-stop platform to explore, download, and enjoy high-quality Windows desktop applications and games.</p>
+      <a href="#appsSection"><button class="exploreBtn">Explore Now</button></a>
+    </div>
+  </div>
+
+
+  <!-- APP CARDS SECTION -->
+   <div class="header">
+    <h1>All Apps & Games</h1>
+   </div>
+
+  <main id="appsSection" class="appsGrid">
+    <div class="appsContainer">
+      <div class="appImage">
+        <img src="fs14.jpg" alt="FS14 App" />
+      </div>
+      <div class="appDetails">
+        <p class="freeTag">FREE</p>
+        <p>FS14 - Tractor Simulator</p>
+      </div>
+      <div class="appButtons">
+        <a href="#"><button class="downloadBtn">Download</button></a>
+        <a href="../knowMore/knowMore.html"><button class="knowMoreBtn">Know More</button></a>
+      </div>
+    </div>
+     <!-- Add more apps similarly -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footerContainer">
+
+      <!-- Brand & Description -->
+      <div class="footerBrand">
+        <h2 class="footerTitle">Apptube</h2>
+        <p class="footerDesc">
+          Discover, download, and enjoy the best Windows apps & games with Apptube’s sleek design and lightning-fast experience.
+        </p>
+        <div class="footerSocial">
+          <a href="https://www.facebook.com/profile.php?id=61579350813671"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/apptubeofficial05/"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Apps Section -->
+      <div class="footerLinks">
+        <h3>Apps</h3>
+        <span class="feature-item">Top Free Apps</span>
+        <span class="feature-item">Free Download</span>
+        <span class="feature-item">Different Categories</span>
+      </div>
+
+      <!-- Games Section -->
+      <div class="footerLinks">
+        <h3>Games</h3>
+        <span class="feature-item">Top Free Games</span>
+        <span class="feature-item">Free Download</span>
+        <span class="feature-item">Many Types of Games</span>
+      </div>
+
+      <!-- Features Section (plain text items) -->
+      <div class="footerLinks">
+        <h3>Features</h3>
+        <span class="feature-item">App Search & Discovery</span>
+        <span class="feature-item">App Categories & Filters</span>
+        <span class="feature-item">User-Friendly Interface</span>
+        <span class="feature-item">Secure Download Links</span>
+        <span class="feature-item">Developer Profiles</span>
+      </div>
+
+      <!-- Support Section -->
+      <div class="footerLinks">
+        <h3>Support</h3>
+        <a href="../helpCenter/helpCenter.html">Help Center</a>
+        <a href="../privacyPolicy/privacyPolicy.html">Privacy Policy</a>
+        <a href="../termsServices/termsServices.html">Terms of Service</a>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footerBottom">
+      <p>&copy; 2025 Apptube. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../relativejs/checkAuth.js"></script>
+  <script src="homePage.js" defer></script>
+  <script src="../relativejs/logout.js"></script>
+</body>
+</html>
