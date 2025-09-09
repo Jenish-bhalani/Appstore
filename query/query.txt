@@ -1,0 +1,4 @@
+insert into apps(id,appname,apptype,categories,description,appicon,zipfile) 
+values
+(101,"zoobies","games","education","this is game","1757354795779ZombieDerby.jpg","1757354795781Zombie-Derby-2.zip");
+select * from apps;
