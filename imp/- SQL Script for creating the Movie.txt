@@ -1,0 +1,147 @@
+- SQL Script for creating the Movie Matrix database tables
+
+-- -----------------------------------------------------
+-- Table users
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS users (
+  id VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  avatar TEXT NULL,
+  role ENUM('User', 'Admin') NOT NULL DEFAULT 'User',
+  joined TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE INDEX email_UNIQUE (email ASC));
+
+
+-- -----------------------------------------------------
+-- Table movies
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS movies (
+  id VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  tagline TEXT NULL,
+  posterUrl TEXT NULL,
+  backdropUrl TEXT NULL,
+  rating DECIMAL(3,1) NULL,
+  releaseDate DATE NULL,
+  overview TEXT NULL,
+  trailerUrl TEXT NULL,
+  PRIMARY KEY (id));
+
+
+-- -----------------------------------------------------
+-- Table events
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS events (
+  id VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  type VARCHAR(255) NULL,
+  imageUrl TEXT NULL,
+  date DATE NULL,
+  location VARCHAR(255) NULL,
+  description TEXT NULL,
+  PRIMARY KEY (id));
+
+
+-- -----------------------------------------------------
+-- Table reviews
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS reviews (
+  id INT NOT NULL AUTO_INCREMENT,
+  itemId VARCHAR(255) NOT NULL,
+  itemType ENUM('movie', 'event') NOT NULL,
+  userId VARCHAR(255) NOT NULL,
+  rating INT NOT NULL,
+  comment TEXT NOT NULL,
+  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  INDEX fk_reviews_users_idx (userId ASC),
+  CONSTRAINT fk_reviews_users
+    FOREIGN KEY (userId)
+    REFERENCES users (id)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table cast_members
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS cast_members (
+  id INT NOT NULL AUTO_INCREMENT,
+  movieId VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  character VARCHAR(255) NOT NULL,
+  imageUrl TEXT NULL,
+  PRIMARY KEY (id),
+  INDEX fk_cast_members_movies_idx (movieId ASC),
+  CONSTRAINT fk_cast_members_movies
+    FOREIGN KEY (movieId)
+    REFERENCES movies (id)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table bookings
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS bookings (
+  id VARCHAR(255) NOT NULL,
+  userId VARCHAR(255) NOT NULL,
+  itemId VARCHAR(255) NOT NULL,
+  itemType ENUM('movie', 'event') NOT NULL,
+  bookingDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  showDate DATE NOT NULL,
+  showTime VARCHAR(45) NOT NULL,
+  theater VARCHAR(255) NULL,
+  seats JSON NOT NULL,
+  total DECIMAL(10,2) NOT NULL,
+  status ENUM('confirmed', 'past') NOT NULL,
+  PRIMARY KEY (id),
+  INDEX fk_bookings_users_idx (userId ASC),
+  CONSTRAINT fk_bookings_users
+    FOREIGN KEY (userId)
+    REFERENCES users (id)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table messages
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS messages (
+  id VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  subject VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL,
+  receivedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  isRead TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (id));
+
+This is the final configuration step where you tell the project how to connect to your database and use the AI features.
+
+Create .env.local: In the project's root folder, make a copy of the .env.sample file and rename it to .env.local.
+
+Add Your Credentials: Open the new .env.local file and fill in the values.
+
+# Get your free key from Google AI Studio: https://aistudio.google.com/app/apikey
+GEMINI_API_KEY=YOUR_SECRET_GEMINI_API_KEY_HERE
+
+# MySQL Database Connection
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=your_mysql_username
+DB_PASSWORD=your_mysql_password
+DB_NAME=moviematrix
+
+Replace your_mysql_username and your_mysql_password with your actual MySQL credentials.
+
+You're all set! Now, start the local development server with this command:
+
+npm run dev
+
+Your application will now be running at http://localhost:9002.
+
+The project is now configured to automatically use your MySQL database. If it can't connect for any reason, it will safely fall back to using the built-in mock data, so the app will always run.
